@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clon/home_page.dart';
 
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
@@ -11,7 +12,7 @@ class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
 
   List _pages = [
-    Text('page1'),
+    HomePage(),
     Text('page2'),
     Text('page3')
   ];
