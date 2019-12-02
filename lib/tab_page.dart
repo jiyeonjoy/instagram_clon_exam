@@ -22,6 +22,8 @@ class _TabPageState extends State<TabPage> {
     return Scaffold(
       body: Center(child: _pages[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        // 아이템 선택시 색 변경
+        fixedColor: Colors.black,
         // 아이템 선택시 인덱스 바꾸기 메소드 정의
         onTap: _onItemTapped,
           // 현재 선택된 인덱스
