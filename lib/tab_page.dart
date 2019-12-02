@@ -9,10 +9,17 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
-  
+
+  List _pages = [
+    Text('page1'),
+    Text('page2'),
+    Text('page3')
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Center(child: _pages[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         // 아이템 선택시 인덱스 바꾸기 메소드 정의
         onTap: _onItemTapped,
