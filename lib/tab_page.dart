@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clon/account_page.dart';
 import 'package:instagram_clon/home_page.dart';
+import 'package:instagram_clon/search_page.dart';
 
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
@@ -14,7 +15,7 @@ class _TabPageState extends State<TabPage> {
 
   List _pages = [
     HomePage(),
-    Text('page2'),
+    SearchPage(),
     AccountPage()
   ];
 
