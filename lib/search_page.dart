@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clon/create_page.dart';
+import 'package:instagram_clon/detail_post_page.dart';
 
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
@@ -96,8 +97,24 @@ class _SearchPageState extends State<SearchPage> {
 //  }
 
   Widget _buildListItem(BuildContext context, int index) {
-    return Image.network(
-      'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
-      fit: BoxFit.cover,);
+    // Image.network 앞에 커서두고 Alt + Enter 누르면 뉴 위젯으로 감쌀 수 있음.
+    // InkWell 은 이미지 클릭시 물방울이 퍼지는 효과를 낼 수 있음.
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return DetailPostPage({
+                      'id' : 'choi',
+                      'photoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
+                      'contents' : '잘나오니?',
+                      'email' : 'choi02647@naver.com',
+                      'displayName' : '최지연',
+                      'userPhotoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813'
+                    });
+        }));
+      },
+      child: Image.network(
+        'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
+        fit: BoxFit.cover,),
+    );
   }
 }
