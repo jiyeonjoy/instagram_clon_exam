@@ -13,6 +13,31 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  // 파이어베이스 로그인
+  // GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  // 게시물 수
+  int _postCount = 0;
+
+
+  // 초기화 되는 부분. 생성자 다음 빌더 전 실행 됨!!!
+  @override
+  void initState() {
+    super.initState();
+    _postCount = 2;
+    // Firestore에서 post 컬렉션에 email이 유저의 이메일과 같으면 가져온다.
+    // 역시 future로 가져오기때문에(비동기) then으로 shapShot을 받고
+    // 해당정보 이용해서 _postCount 값 바꿔줌. 이때 setState() 해줘야지 바뀜!!!!!!
+    // Firestore.instance.collection('post').where('email', isEqualTo: widget.user.email)
+    // .getDocuments()
+    // .then((snapShot) {
+    //  setState(() {
+    //   _postCount = snapShot.documents.length;
+    //  });
+    // });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +130,7 @@ class _AccountPageState extends State<AccountPage> {
               )
             ],
           ),
-          Text('0\n게시물',
+          Text('$_postCount\n게시물',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18.0),
           ),

@@ -97,24 +97,37 @@ class _SearchPageState extends State<SearchPage> {
 //  }
 
   Widget _buildListItem(BuildContext context, int index) {
-    // Image.network 앞에 커서두고 Alt + Enter 누르면 뉴 위젯으로 감쌀 수 있음.
-    // InkWell 은 이미지 클릭시 물방울이 퍼지는 효과를 낼 수 있음.
-    return InkWell(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return DetailPostPage({
-                      'id' : 'choi',
-                      'photoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
-                      'contents' : '잘나오니?',
-                      'email' : 'choi02647@naver.com',
-                      'displayName' : '최지연',
-                      'userPhotoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813'
-                    });
-        }));
-      },
-      child: Image.network(
-        'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
-        fit: BoxFit.cover,),
+
+    // json 형태로 저장.
+  dynamic document = {
+    'id' : 'choi',
+    'photoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813',
+    'contents' : '잘나오니?',
+    'email' : 'choi02647@naver.com',
+    'displayName' : '최지연',
+    'userPhotoUrl' : 'https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813'
+  };
+
+    // 이미지 클릭시 이미지가 커지는 애니메이션이 생기면서 화면 이동하기 위한 위젯 Hero
+    return Hero(
+      // tag를 그냥 문자로 지정해주면 에러 뜸. 리스트 아이템의 Hero를 붙여주는 것이기 때문에 각각 다른 tag를 붙여줘야됨.
+      // 따라서 리스트 아이템의 index를 태그로 붙여줌!!!!!!!!!!!!!!!
+      tag: index,
+      // Image.network 앞에 커서두고 Alt + Enter 누르면 뉴 위젯으로 감쌀 수 있음.
+      // InkWell을 Material로 감싸줘야지 Hero 애니메이션 후 되돌아 왔을 때 에러가 안생김.
+      child: Material(
+        // InkWell 은 이미지 클릭시 물방울이 퍼지는 효과를 낼 수 있음.
+        child: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailPostPage(document, index);
+            }));
+          },
+          child: Image.network(
+            document['photoUrl'],
+            fit: BoxFit.cover,),
+        ),
+      ),
     );
   }
 }

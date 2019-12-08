@@ -6,8 +6,9 @@ class DetailPostPage extends StatelessWidget {
 
   // final 과 var 는 같이 쓸 수 없다. 따라서 dynamic 으로 지정
   final dynamic document;
+  final int index;
   // 생성자
-  DetailPostPage(this.document);
+  DetailPostPage(this.document, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,10 @@ class DetailPostPage extends StatelessWidget {
                 ],
               ),
             ),
-            Image.network(document['photoUrl']),
+            // 이미지 클릭시 Hero 위젯과 tag 를 갖게 맞춰줘야됨!!
+            Hero(
+                tag: index,
+                child: Image.network(document['photoUrl'])),
             Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(document['contents']))
