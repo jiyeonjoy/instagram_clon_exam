@@ -19,6 +19,10 @@ class LoginPage extends StatelessWidget {
             ),
             SignInButton(
               Buttons.Google, onPressed: () {
+                // Google 로그인 - then 메소드를 쓰면 비동기 끝나고 결과가 안에 들어옴.
+//                _handleSignIn().then((user) {
+//                  print(user);
+//                });
               },
             )
           ],
@@ -26,4 +30,15 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+
+// Google 로그인 - 비동기 방식임.
+//  Future<FirebaseUser> _handleSignIn() async {
+//    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+//    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+//    FirebaseUser user = (await _auth.signInWithCredential(
+//        GoogleAuthProvider.getCredential(
+//            idToken: googleAuth.idToken, accessToken: googleAuth.accessToken))).user;
+//    print("signed in " + user.displayName);
+//    return user;
+//  }
 }

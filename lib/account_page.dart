@@ -23,7 +23,11 @@ class _AccountPageState extends State<AccountPage> {
         IconButton(
           icon: Icon(Icons.exit_to_app),
           // IconButton onPressed 구성해줘야됨. 일단 아무것도 안할 경우 onPressed: () {} 입력하면 됨
-          onPressed: () {},
+          onPressed: () {
+            // 로그아웃 추가
+            // FirebaseAuth.instance.signOut();
+            // _googleSignIn.sighOut();
+          },
         )
       ],
 

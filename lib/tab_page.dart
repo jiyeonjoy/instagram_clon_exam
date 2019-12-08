@@ -6,6 +6,11 @@ import 'package:instagram_clon/search_page.dart';
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
 class TabPage extends StatefulWidget {
+  // 파이어베이스 로그인시 정보 객체
+  // final FirebaseUser user;
+
+  // TabPage(this.user); - 생성자
+
   @override
   _TabPageState createState() => _TabPageState();
 }
