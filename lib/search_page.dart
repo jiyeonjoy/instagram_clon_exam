@@ -4,6 +4,13 @@ import 'package:instagram_clon/create_page.dart';
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
 class SearchPage extends StatefulWidget {
+
+
+  // 파이어베이스 로그인 시 로그인 정보 전달 , 생성자 추가.
+  // final FirebaseUser user; - import 필요
+  // SearchPage(this.user)
+
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -18,6 +25,8 @@ class _SearchPageState extends State<SearchPage> {
         onPressed: () {
           Navigator.push(context,
               MaterialPageRoute(builder: (counter) => CreatePage()));
+              // 파이어베이스 로그인 시 정보 추가
+              // MaterialPageRoute(builder: (counter) => CreatePage(widget.user)));
         },
         child: Icon(Icons.create),
         backgroundColor: Colors.blue,

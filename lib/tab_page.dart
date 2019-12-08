@@ -31,6 +31,7 @@ class _TabPageState extends State<TabPage> {
     _pages = [
       // 파이어베이스 로그인시 로그인 정보 전달
       // HomePage(widget.user),
+      // SearchPage(widget.user),
       // AccountPage(widget.user)
       HomePage(),
       SearchPage(),
