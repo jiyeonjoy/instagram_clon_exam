@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 // 변경 필요하므로 StatefulWidget 으로 생성
 // stful 입력 후 엔터
 class AccountPage extends StatefulWidget {
+
+  // 파이어베이스 로그인 시 로그인 정보 전달 , 생성자 추가.
+  // final FirebaseUser user; - import 필요
+  // AccountPage(this.user)
+
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -53,6 +58,8 @@ class _AccountPageState extends State<AccountPage> {
                     height: 80.0,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage('https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813'),
+                      // 파이어베이스 로그인 시 유저 이미지 불러오기
+                      // backgroundImage: NetworkImage(widget.user.photoUrl),
                     ),
                   ),
                   // 플러스 이미지 아이콘을 Container 로 감싼다. Container 크기는 이미지와 똑같이 해주고 그안의 플러스 이미지 아이콘을 위치 조정한다.
@@ -91,6 +98,8 @@ class _AccountPageState extends State<AccountPage> {
               Padding(
                 padding: EdgeInsets.all(8.0),
               ),
+              // 파이어베이스 로그인 시 유저 정보 불러오기
+//            Text(user.displayName),
               Text('이름',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
               )

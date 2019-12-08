@@ -18,11 +18,25 @@ class TabPage extends StatefulWidget {
 class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
 
-  List _pages = [
-    HomePage(),
-    SearchPage(),
-    AccountPage()
-  ];
+  List _pages;
+
+
+  // init 치면 바로뜸 엔터치면 됨.
+  // 생성자 다음에 호출되는 부분임. build 전에 호출됨. 초기화 해줄때 여기에 해주면 에러없음.
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // 위에 List 선언만 해줌. 초기화 위해서 하면 wiget.user 부분에서 에러 발생.
+    _pages = [
+      // 파이어베이스 로그인시 로그인 정보 전달
+      // HomePage(widget.user),
+      // AccountPage(widget.user)
+      HomePage(),
+      SearchPage(),
+      AccountPage()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

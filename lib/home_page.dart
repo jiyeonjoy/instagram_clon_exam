@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 // 상태 변하지 않으므로 StatelessWidget 으로 생성
 // stless 입력하고 엔터치면 됨!!
 class HomePage extends StatelessWidget {
+
+  // 파이어베이스 로그인 시 로그인 정보 전달 , 생성자 추가.
+  // final FirebaseUser user; - import 필요
+  // HomePage(this.user);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,10 +63,15 @@ class HomePage extends StatelessWidget {
                               child: CircleAvatar(
                                 // 이미지 url 주소로 불러오기
                                 backgroundImage: NetworkImage('https://t1.daumcdn.net/cfile/tistory/99D789415DB79FE813'),
+                                // 파이어베이스 로그인 시 유저 이미지 불러오기
+                                // backgroundImage: NetworkImage(widget.user.photoUrl),
                               ),
                             ),
                             Text('이메일 주소', style: TextStyle(fontWeight: FontWeight.bold),),
                             Text('이름'),
+                            // 파이어베이스 로그인 시 유저 정보 불러오기
+//                            Text(user.email, style: TextStyle(fontWeight: FontWeight.bold),),
+//                            Text(user.displayName),
                             // 글자 사이에 간격을 주기 위해 Padding 추가
                             Padding(padding: EdgeInsets.all(8.0)),
                             Row(
